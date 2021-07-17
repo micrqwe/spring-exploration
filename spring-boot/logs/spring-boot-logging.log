@@ -1,0 +1,89 @@
+2018-04-20 11:02:27.996  INFO 1724 --- [main] xyz.micrqwe.test.RandomPortExampleTests  : Starting RandomPortExampleTests on le with PID 1724 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:02:27.999  INFO 1724 --- [main] xyz.micrqwe.test.RandomPortExampleTests  : The following profiles are active: dev
+2018-04-20 11:02:40.970  INFO 1724 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:02:44.009  INFO 1724 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:02:44.058  INFO 1724 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:02:44.146  INFO 1724 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:02:44.371  INFO 1724 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:02:44.380  INFO 1724 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:02:44.421  INFO 1724 --- [main] xyz.micrqwe.test.RandomPortExampleTests  : Started RandomPortExampleTests in 20.776 seconds (JVM running for 26.949)
+2018-04-20 11:14:40.106  INFO 2728 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 2728 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:14:40.108  INFO 2728 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:14:43.628  INFO 2728 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:14:45.419  INFO 2728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:14:45.445  INFO 2728 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:14:45.480  INFO 2728 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:14:45.681  INFO 2728 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:14:45.758  INFO 2728 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:14:45.772  INFO 2728 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 6.209 seconds (JVM running for 7.118)
+2018-04-20 11:14:46.212  WARN 2728 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:15:31.666  INFO 6096 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 6096 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:15:31.667  INFO 6096 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:15:35.794  INFO 6096 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:15:38.089  INFO 6096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:15:38.113  INFO 6096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:15:38.154  INFO 6096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:15:38.351  INFO 6096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:15:38.363  INFO 6096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:15:38.380  INFO 6096 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 7.286 seconds (JVM running for 8.291)
+2018-04-20 11:15:38.490  WARN 6096 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:15:58.270  INFO 8824 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 8824 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:15:58.271  INFO 8824 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:16:02.680  INFO 8824 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:16:05.029  INFO 8824 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:16:05.063  INFO 8824 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:16:05.106  INFO 8824 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:16:05.285  INFO 8824 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:16:05.293  INFO 8824 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:16:05.312  INFO 8824 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 7.678 seconds (JVM running for 8.673)
+2018-04-20 11:16:05.413  WARN 8824 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:20:03.719  INFO 6532 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 6532 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:20:03.737  INFO 6532 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:20:08.169  INFO 6532 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:20:10.529  INFO 6532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:20:10.557  INFO 6532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:20:10.607  INFO 6532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:20:10.787  INFO 6532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:20:10.798  INFO 6532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:20:10.813  INFO 6532 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 7.658 seconds (JVM running for 8.531)
+2018-04-20 11:20:10.910  WARN 6532 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:20:35.447  INFO 11548 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 11548 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:20:35.448  INFO 11548 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:20:39.245  INFO 11548 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:20:41.686  INFO 11548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:20:41.714  INFO 11548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:20:41.757  INFO 11548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:20:41.931  INFO 11548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:20:41.940  INFO 11548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:20:41.955  INFO 11548 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 6.818 seconds (JVM running for 7.917)
+2018-04-20 11:20:42.037  WARN 11548 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:21:16.281  INFO 14776 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 14776 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:21:16.283  INFO 14776 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:21:20.639  INFO 14776 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:21:23.043  INFO 14776 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:21:23.073  INFO 14776 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:21:23.112  INFO 14776 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:21:23.295  INFO 14776 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:21:23.304  INFO 14776 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:21:23.320  INFO 14776 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 7.637 seconds (JVM running for 8.9)
+2018-04-20 11:21:23.416  WARN 14776 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:22:16.891  INFO 18164 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 18164 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:22:16.900  INFO 18164 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:22:22.175  INFO 18164 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:22:24.955  INFO 18164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:22:24.997  INFO 18164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:22:25.041  INFO 18164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:22:25.262  INFO 18164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:22:25.303  INFO 18164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:22:25.323  INFO 18164 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 9.109 seconds (JVM running for 10.418)
+2018-04-20 11:22:25.414  WARN 18164 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2018-04-20 11:22:45.132  INFO 17300 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Starting SqlCustomerTests on le with PID 17300 (started by shaowenxing in E:\languager\work\mywork\spring-boot)
+2018-04-20 11:22:45.134  INFO 17300 --- [main] xyz.micrqwe.test.SqlCustomerTests        : The following profiles are active: dev
+2018-04-20 11:22:51.591  INFO 17300 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-04-20 11:22:54.486  INFO 17300 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-04-20 11:22:54.523  INFO 17300 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 3 custom documentation plugin(s)
+2018-04-20 11:22:54.576  INFO 17300 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:22:54.793  INFO 17300 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:22:54.802  INFO 17300 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-04-20 11:22:54.815  INFO 17300 --- [main] xyz.micrqwe.test.SqlCustomerTests        : Started SqlCustomerTests in 10.172 seconds (JVM running for 14.739)
+2018-04-20 11:22:54.914  WARN 17300 --- [main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50

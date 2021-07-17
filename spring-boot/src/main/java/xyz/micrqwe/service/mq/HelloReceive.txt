@@ -1,0 +1,73 @@
+package xyz.micrqwe.service.mq;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import xyz.micrqwe.controller.MessageController;
+import xyz.micrqwe.model.User;
+
+import java.io.ByteArrayInputStream;
+import java.io.ObjectInputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
+/**
+ * 监听回来得信息
+ */
+@Service
+public class HelloReceive {
+
+    private static final Logger log = LoggerFactory.getLogger(HelloReceive.class);
+
+    //监听器监听指定的Queue
+    @RabbitListener(queues = "queue")
+    public void processC(String str) {
+        log.info("Receive:" + str);
+        // 这个是点对点发送给某个人，在利用websocket。将rabbitmq的异步消息转发给具体的人
+    }
+
+    // 使用交换机进行指定监听
+    @RabbitListener(queues = "topic.message")    //监听器监听指定的Queue
+    public void process1(String str) {
+        log.info("topic.message:" + str);
+    }
+
+    @RabbitListener(queues = "topic.messages")    //监听器监听指定的Queue
+    public void process3(Message str) {
+        try {
+            ByteArrayInputStream i = new ByteArrayInputStream(str.getBody());
+            ObjectInputStream o = new ObjectInputStream(i);
+            User user = (User) o.readObject();
+            log.info("{}", user);
+            Message message = new Message(user.getB(), null);
+            process2(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+//        System.out.println(str.getClass());
+    }
+
+    //    @RabbitListener(queues = "topic.messages")    //监听器监听指定的Queue
+    public void process2(Message str) {
+        try {
+            RandomAccessFile aFile = new RandomAccessFile("E:\\1.txt", "rw");
+            FileChannel inChannel = aFile.getChannel();
+            inChannel.position(aFile.length());
+//create buffer with capacity of 48 bytes
+            ByteBuffer buf = ByteBuffer.allocate(2);
+            buf.put(str.getBody());
+            buf.flip();
+            while (buf.hasRemaining()) {
+                inChannel.write(buf);
+            }
+            inChannel.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

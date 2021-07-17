@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.micrqwe.dao.CityMapper">
+
+    <!--    <select id="findByState" resultType="map">
+            SELECT
+            VOLUME "volume",MEDIA_NAME "mediaName"
+            FROM (
+            SELECT C.VOLUME,D.MEDIA_NAME FROM (
+            SELECT d.MEDIA_CD, SUM(d.MEDIA_VOLUME) "VOLUME"
+            FROM DW_MEDIA_EMO_COLLECT_INFO d,
+            (select MEDIA_TYPE_CD from cde_media_type where DATA_TYPE=1) c
+            WHERE c.MEDIA_TYPE_CD=d.MEDIA_TYPE_CD
+            <if test="startAnlsDateStr!=null and startAnlsDateStr !=''">
+                AND d.PUB_TIME<![CDATA[ >= ]]>TO_DATE(#{startAnlsDateStr, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+            </if>
+            <if test="endAnlsDateStr!=null and endAnlsDateStr !=''">
+                and d.PUB_TIME<![CDATA[ <= ]]>TO_DATE( #{endAnlsDateStr, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+            </if>
+            GROUP BY d.MEDIA_CD
+            ) C ,CDE_MEDIA_THEME_CHANNEL_HSEN D
+            WHERE C.MEDIA_CD=D.MEDIA_CD
+            ORDER BY C.VOLUME DESC
+            )
+            WHERE
+            ROWNUM <![CDATA[<=]]>20
+        </select>-->
+
+</mapper>
