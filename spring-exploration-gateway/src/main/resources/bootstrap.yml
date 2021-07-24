@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: exploration-gateway
+  cloud:
+#    sentinel:
+#      transport:
+#        dashboard: localhost:4080
+#        port: 4080
+##        client-ip: 192.168.24.61
+#      # 服务启动直接建立心跳连接
+#      eager: true
+#      datasource:
+#        gw-flow:
+#          nacos:
+#            server-addr: ${spring.cloud.nacos.config.server-addr}
+#            namespace: ${spring.cloud.nacos.config.namespace}
+#            data-id: ${spring.application.name}-gateway-flow-rules
+#            group-id: sentinel
+#            rule-type: gw-flow
+#        gw-api:
+#          nacos:
+#            server-addr: ${spring.cloud.nacos.config.server-addr}
+#            namespace: ${spring.cloud.nacos.config.namespace}
+#            data-id: ${spring.application.name}-gateway-apis
+#            group-id: sentinel
+#            rule-type: gw-api-group
+#        degrade:
+#          nacos:
+#            server-addr: ${spring.cloud.nacos.config.server-addr}
+#            namespace: ${spring.cloud.nacos.config.namespace}
+#            data-id: ${spring.application.name}-degrade-rules
+#            group-id: sentinel
+#            rule-type: degrade
+    nacos:
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        metadata:
+          timestamp: ${server.bootstrap.time}
+#      config:
+#        server-addr: 192.168.20.156:8848,192.168.20.157:8848,192.168.20.158:8848 #nacos注册中心地址
+#        namespace: 8a87e535-6c65-45b0-8cf2-2e57c9563651 #对应的namespaceId
+#        group: ${spring.application.name} #分组ID，这里使用spring.application.name的值
+#        file-extension: properties
+#        refresh-enabled: true
+#        shared-configs:
+#          - data-id: config.properties #通用配置
+#            group: ${spring.cloud.nacos.config.group}
+#            refresh: true
+#          - data-id: cache.properties # 缓存配置
+#            group: ${spring.cloud.nacos.config.group}
+#            refresh: true
+#          - data-id: db.properties # 数据库配置
+#            group: ${spring.cloud.nacos.config.group}
+#            refresh: true
+#          - data-id: mq.properties  #mq配置
+#            group: ${spring.cloud.nacos.config.group}
+#            refresh: true
+#          - data-id: log4j.properties #log4j配置
+#            group: ${spring.cloud.nacos.config.group}
+#            refresh: true
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+#      routes:
+#  profiles:
+#    active: nacos

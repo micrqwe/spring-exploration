@@ -1,0 +1,22 @@
+server:
+  port: 9147
+logging:
+  level:
+    org.springframework.cloud.gateway: info
+
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: ${spring.cloud.nacos.config.server-addr}
+#        namespace: ${spring.cloud.nacos.config.namespace}
+#        metadata:
+#          timestamp: ${server.bootstrap.time}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
