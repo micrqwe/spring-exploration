@@ -1,0 +1,14 @@
+server:
+  port: 8181
+spring:
+  redis:
+    database: 0
+    host: 150.158.195.216
+    port: 6379
+  application:
+    name: exploration-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 150.158.195.216:8848 #nacos注册中心地址
+        namespace: 740e7864-866b-43b3-bb12-c9f2c29d22a4 #对应的namespaceId

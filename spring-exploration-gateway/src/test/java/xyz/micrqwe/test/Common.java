@@ -2,12 +2,12 @@ package xyz.micrqwe.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.test.context.SpringBootTest;
-import xyz.micrqwe.ExplorationApplication;
+import xyz.micrqwe.GatewayApplication;
 
 /**
  * Created by shaowenxing on 2018/4/20.
  */
-@SpringBootTest(classes = ExplorationApplication.class)
+@SpringBootTest(classes = GatewayApplication.class)
 public class Common {
     public String toJson(Object o) {
         ObjectMapper objectMapper = new ObjectMapper();

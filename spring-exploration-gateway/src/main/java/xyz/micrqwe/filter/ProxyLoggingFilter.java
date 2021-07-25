@@ -1,7 +1,5 @@
-package cn.strong.lt.gateway.filter;
+package xyz.micrqwe.filter;
 
-import cn.strong.common.utils.HttpUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -54,7 +52,7 @@ public class ProxyLoggingFilter implements GlobalFilter, Ordered {
                 ServerHttpRequest request = exchange.getRequest();
                 ServerHttpResponse response = exchange.getResponse();
                 Integer statusCode = response.getRawStatusCode();
-                String traceId = request.getHeaders().getFirst(HttpUtils.TRACE_ID_KEY);
+                String traceId = request.getHeaders().getFirst("HttpUtils.TRACE_ID_KEY");
                 String info = String.format("Route:{%s} Method:{%s} Host:{%s} Path:{%s} Query:{%s} Spent:{%s} Status:{%s} Trace:{%s}",
                         serviceId,
                         request.getMethod().name(),

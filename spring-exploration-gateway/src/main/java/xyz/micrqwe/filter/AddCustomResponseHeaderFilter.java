@@ -1,7 +1,6 @@
-package cn.strong.lt.gateway.filter;
+package xyz.micrqwe.filter;
 
-import cn.strong.common.utils.HttpUtils;
-import cn.strong.model.auth.TokenInfo;
+
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -18,16 +17,16 @@ import reactor.core.publisher.Mono;
 public class AddCustomResponseHeaderFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        TokenInfo tokenInfo = exchange.getAttribute(AuthorizeGatewayFilter.TOKEN_INFO_KEY);
-        if (tokenInfo != null) {
-            ServerHttpResponse response = exchange.getResponse();
-            if (tokenInfo.getAccessToken() != null) {
-                response.getHeaders().set("X-Access-Token", HttpUtils.encode(tokenInfo.getAccessToken()));
-            }
-            if (tokenInfo.getRefreshToken() != null) {
-                response.getHeaders().set("X-Refresh-Token", HttpUtils.encode(tokenInfo.getRefreshToken()));
-            }
-        }
+//        TokenInfo tokenInfo = exchange.getAttribute(AuthorizeGatewayFilter.TOKEN_INFO_KEY);
+//        if (tokenInfo != null) {
+//            ServerHttpResponse response = exchange.getResponse();
+//            if (tokenInfo.getAccessToken() != null) {
+//                response.getHeaders().set("X-Access-Token", HttpUtils.encode(tokenInfo.getAccessToken()));
+//            }
+//            if (tokenInfo.getRefreshToken() != null) {
+//                response.getHeaders().set("X-Refresh-Token", HttpUtils.encode(tokenInfo.getRefreshToken()));
+//            }
+//        }
         return chain.filter(exchange);
     }
 

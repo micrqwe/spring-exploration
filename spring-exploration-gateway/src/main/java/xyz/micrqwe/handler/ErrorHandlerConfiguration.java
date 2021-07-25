@@ -1,7 +1,6 @@
-package cn.strong.lt.gateway.exception.handler;
+package xyz.micrqwe.handler;
 
 
-import cn.strong.lt.gateway.config.AppProperties;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
@@ -40,8 +39,6 @@ public class ErrorHandlerConfiguration {
 
     private final ServerCodecConfigurer serverCodecConfigurer;
 
-    @Resource
-    private AppProperties appProperties;
 
     public ErrorHandlerConfiguration(ServerProperties serverProperties,
                                      ResourceProperties resourceProperties,
@@ -55,18 +52,18 @@ public class ErrorHandlerConfiguration {
         this.serverCodecConfigurer = serverCodecConfigurer;
     }
 
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    public ErrorWebExceptionHandler errorWebExceptionHandler(ErrorAttributes errorAttributes) {
-        JsonExceptionHandler exceptionHandler = new JsonExceptionHandler(
-                errorAttributes,
-                this.resourceProperties,
-                this.serverProperties.getError(),
-                this.applicationContext);
-        exceptionHandler.setViewResolvers(this.viewResolvers);
-        exceptionHandler.setMessageWriters(this.serverCodecConfigurer.getWriters());
-        exceptionHandler.setMessageReaders(this.serverCodecConfigurer.getReaders());
-        exceptionHandler.setAppProperties(appProperties);
-        return exceptionHandler;
-    }
+//    @Bean
+//    @Order(Ordered.HIGHEST_PRECEDENCE)
+//    public ErrorWebExceptionHandler errorWebExceptionHandler(ErrorAttributes errorAttributes) {
+//        JsonExceptionHandler exceptionHandler = new JsonExceptionHandler(
+//                errorAttributes,
+//                this.resourceProperties,
+//                this.serverProperties.getError(),
+//                this.applicationContext);
+//        exceptionHandler.setViewResolvers(this.viewResolvers);
+//        exceptionHandler.setMessageWriters(this.serverCodecConfigurer.getWriters());
+//        exceptionHandler.setMessageReaders(this.serverCodecConfigurer.getReaders());
+////        exceptionHandler.setAppProperties(appProperties);
+//        return exceptionHandler;
+//    }
 }
