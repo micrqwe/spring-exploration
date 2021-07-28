@@ -29,20 +29,20 @@
 <!--            <url>http://maven.dxy.net/nexus/content/groups/public</url>-->
 <!--        </repository>-->
 <!--    </repositories>-->
-<!--    <pluginRepositories>-->
-<!--        <pluginRepository>-->
-<!--            <id>spring-releases</id>-->
-<!--            <name>Spring Releases</name>-->
-<!--            <url>https://repo.spring.io/release</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--            </snapshots>-->
-<!--        </pluginRepository>-->
-<!--    </pluginRepositories>-->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
     <properties>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>2.1.9</mybatisplus.version>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <repackage.classifier/>
         <spring-native.version>0.10.1</spring-native.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
@@ -191,25 +191,25 @@
                     </image>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.experimental</groupId>
-                <artifactId>spring-aot-maven-plugin</artifactId>
-                <version>${spring-native.version}</version>
-                <executions>
-                    <execution>
-                        <id>test-generate</id>
-                        <goals>
-                            <goal>test-generate</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>generate</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.experimental</groupId>-->
+<!--                <artifactId>spring-aot-maven-plugin</artifactId>-->
+<!--                <version>${spring-native.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>test-generate</id>-->
+<!--                        <goals>-->
+<!--                            <goal>test-generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>generate</id>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
         <resources>
             <resource>
