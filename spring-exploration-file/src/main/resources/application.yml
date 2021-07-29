@@ -1,5 +1,5 @@
 server:
-  port: 9148
+  port: 9150
 #Apollo 配置
 app:
   id: exploration                              #应用ID
@@ -14,19 +14,23 @@ apollo:
     eagerLoad:
       enabled: false                         #将 Apollo 加载提到初始化日志系统之前
 spring:
-  redis:
-    database: 0
-    host: 150.158.195.216
-    port: 6379
   application:
-    name: exploration-consumer
+    name: exploration-file
   cloud:
     nacos:
       discovery:
         server-addr: 150.158.195.216:8848 #nacos注册中心地址
         namespace: 740e7864-866b-43b3-bb12-c9f2c29d22a4 #对应的namespaceId
   profiles:
-    active: test
+    active: dev
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10000MB
+      max-request-size: 10000MB
 # 环境不同的配置文件
 ---
 spring:

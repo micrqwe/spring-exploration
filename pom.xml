@@ -29,6 +29,7 @@
 <!--            <url>http://maven.dxy.net/nexus/content/groups/public</url>-->
 <!--        </repository>-->
 <!--    </repositories>-->
+<!--    https://repo.maven.apache.org/maven2/-->
     <pluginRepositories>
         <pluginRepository>
             <id>spring-releases</id>
@@ -115,6 +116,7 @@
     <modules>
         <module>spring-exploration-consumer</module>
         <module>spring-exploration-gateway</module>
+        <module>spring-exploration-file</module>
     </modules>
 
     <profiles>
