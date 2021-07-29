@@ -6,7 +6,7 @@
 <configuration status="INFO" monitorInterval="30">
     <Properties>
         <!-- 配置日志文件输出目录  默认目录为服务启动目录的同级logs文件夹下，可通过设置系统变量(jvm参数)log.file.path来进行更改-->
-        <Property name="LOG_HOME">${sys:log.file.path:-./logs}</Property>
+        <Property name="LOG_HOME">${sys:log.file.path:-./gatewayLog}</Property>
         <Property name="LOG_BUSINESS_LEVEL">INFO</Property>
         <Property name="LOG_PROXY_LEVEL">INFO</Property>
         <Property name="LOG_LEVEL">INFO</Property>
@@ -24,7 +24,7 @@
 
         <!--business的日志记录追加器-->
         <RollingRandomAccessFile  name="businessFile" fileName="${LOG_HOME}/lt-business.log" immediateFlush="false" append="true"
-                           filePattern="${LOG_HOME}/lt-business-%d{yyyy-MM-dd}-%i.log.gz">
+                           filePattern="${LOG_HOME}/business-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
             <!--    接受${LOG_BUSINESS_LEVEL}及其以下等级的日志    -->
             <Filters>
@@ -40,7 +40,7 @@
 
         <!--exception的日志记录追加器-->
         <RollingRandomAccessFile  name="exceptionFile" fileName="${LOG_HOME}/lt-exception.log" immediateFlush="false" append="true"
-                           filePattern="${LOG_HOME}/lt-exception-%d{yyyy-MM-dd}-%i.log.gz">
+                           filePattern="${LOG_HOME}/exception-%d{yyyy-MM-dd}-%i.log.gz">
             <!--    接受WARN及其以上等级的日志    -->
             <Filters>
                 <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
@@ -83,19 +83,13 @@
     <loggers>
         <root level="INFO">
             <appender-ref ref="Console"/>
+            <appender-ref ref="businessFile"/>
+            <appender-ref ref="exceptionFile"/>
         </root>
 
         <AsyncLogger name="com.alibaba.nacos.client" level="ERROR" additivity="false">
             <appender-ref ref="Console"/>
         </AsyncLogger>
 
-        <AsyncLogger name="cn.strong.lt" level="${LOG_BUSINESS_LEVEL}" additivity="false">
-            <appender-ref ref="businessFile"/>
-            <appender-ref ref="exceptionFile"/>
-            <appender-ref ref="Console"/>
-        </AsyncLogger>
-        <AsyncLogger name="cn.strong.lt.gateway.filter.ProxyLoggingFilter" level="${LOG_PROXY_LEVEL}" additivity="false">
-            <appender-ref ref="proxyFile"/>
-        </AsyncLogger>
     </loggers>
 </configuration>
