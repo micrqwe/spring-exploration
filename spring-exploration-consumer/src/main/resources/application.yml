@@ -10,7 +10,8 @@ apollo:
   autoUpdateInjectedSpringProperties: true   #是否开启 Spring 参数自动更新
   bootstrap:
     enabled: true                            #是否开启 Apollo
-    namespaces: application                  #设置 Namespace
+    namespaces: application
+#    namespaces: TEST1.lan                  #设置 Namespace
     eagerLoad:
       enabled: false                         #将 Apollo 加载提到初始化日志系统之前
 spring:

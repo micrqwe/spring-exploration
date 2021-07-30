@@ -32,7 +32,7 @@ public class HelloController {
     private ProductRocketMQ productRocketMQ;
     @Value("${testDevProperties}")
     private String dbUrl;
-    @Value("${test.apollo.properties:moren}")
+    @Value("${test.local:moren}")
     private String testApollo;
     @GetMapping("/getDbUrl")
     public String getDbUrl(){
