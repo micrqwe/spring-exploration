@@ -1,5 +1,6 @@
 package xyz.micrqwe.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -17,20 +18,30 @@ import java.util.function.Consumer;
  * @since 2020/5/11 15:15.
  */
 @Component
+@Slf4j
 public class TraceGatewayFilter implements GlobalFilter, Ordered {
-    private static final int ORDER = 100 -1;
+    private static final int ORDER = 100 - 1;
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         String traceId = request.getHeaders().getFirst("HttpUtils.TRACE_ID_KEY");
+//        exchange.getRequest().getRemoteAddress().getHostName()
+        // 添加客户端IP
 //        if(log.isDebugEnabled()){
 //            log.debug("trace gateway running:{},url:{}",traceId,request.getURI().getPath());
 //        }
+        ServerHttpRequest.Builder builder = exchange.getRequest().mutate();
         if (traceId == null) {
             Consumer<HttpHeaders> httpHeaders = httpHeader -> httpHeader.set("HttpUtils.TRACE_ID_KEY", UUID.randomUUID().toString());
-            ServerHttpRequest serverHttpRequest = exchange.getRequest().mutate().headers(httpHeaders).build();
-            exchange.mutate().request(serverHttpRequest).build();
+            builder.headers(httpHeaders);
         }
+        ServerHttpRequest ipRequest = builder
+                .header("X-Real-IP", exchange.getRequest().getRemoteAddress().getAddress().getHostAddress())
+                .header("X-Real-Name", exchange.getRequest().getRemoteAddress().getHostName())
+                .build();
+
+        exchange.mutate().request(ipRequest).build();
         return chain.filter(exchange);
     }
 

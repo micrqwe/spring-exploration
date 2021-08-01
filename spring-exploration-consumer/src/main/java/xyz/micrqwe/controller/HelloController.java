@@ -12,6 +12,7 @@ import xyz.micrqwe.model.User;
 import xyz.micrqwe.service.HelloService;
 import xyz.micrqwe.service.impl.MiaoshaServiceImpl;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class HelloController {
     @Value("${test.local:moren}")
     private String testApollo;
     @GetMapping("/getDbUrl")
-    public String getDbUrl(){
+    public String getDbUrl(HttpServletRequest request){
         return dbUrl+":"+testApollo;
     }
 
