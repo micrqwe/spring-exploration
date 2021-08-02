@@ -79,11 +79,22 @@
 
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
     <loggers>
-        <root level="INFO">
-            <appender-ref ref="Console"/>
-            <appender-ref ref="businessFile"/>
-            <appender-ref ref="exceptionFile"/>
+        <root level="DEBUG">
+            <appender-ref ref="Async" />
         </root>
+        <!--        <AsyncLogger name="xyz.micrqwe.controller" level="INFO" additivity="false">-->
+        <!--            <appender-ref ref="businessFile"/>-->
+        <!--            <appender-ref ref="exceptionFile"/>-->
+        <!--        </AsyncLogger>-->
+        <Logger name="com.alibaba.nacos.client" level="ERROR" additivity="false">
+            <appender-ref ref="exceptionFile"/>
+        </Logger>
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+        <!--Logger节点用来单独指定日志的形式，name为包路径,比如要为org.springframework包下所有日志指定为INFO级别等。 -->
+        <logger name="org.springframework" level="INFO"></logger>
+        <logger name="io.netty" level="INFO"></logger>
+        <logger name="reactor.netty" level="INFO"></logger>
+        <logger name="org.mybatis" level="INFO"></logger>
 <!--
         <AsyncLogger name="com.alibaba.nacos.client" level="ERROR" additivity="false">
             <appender-ref ref="Console"/>

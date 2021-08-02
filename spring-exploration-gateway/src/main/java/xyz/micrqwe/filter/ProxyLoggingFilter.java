@@ -1,5 +1,6 @@
 package xyz.micrqwe.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -19,8 +20,8 @@ import reactor.core.publisher.Mono;
  */
 // */
 @Component
+@Slf4j(topic = "proxyFile")
 public class ProxyLoggingFilter implements GlobalFilter, Ordered {
-    private static final Logger logger = LoggerFactory.getLogger(ProxyLoggingFilter.class);
     private static final String START_TIME = "startTime";
     private static final String SERVICE_ID = "serviceId";
 
@@ -41,8 +42,8 @@ public class ProxyLoggingFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         exchange.getAttributes().put(START_TIME, System.currentTimeMillis());
         exchange.getAttributes().put(SERVICE_ID, getServiceId(exchange));
-        if (logger.isDebugEnabled()) {
-            logger.debug("proxy is run url:{},serviceId:{}", exchange.getRequest().getURI().getPath(), exchange.getAttribute(SERVICE_ID));
+        if (log.isDebugEnabled()) {
+            log.debug("proxy is run url:{},serviceId:{}", exchange.getRequest().getURI().getPath(), exchange.getAttribute(SERVICE_ID));
         }
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
             Long startTime = exchange.getAttribute(START_TIME);
@@ -59,7 +60,7 @@ public class ProxyLoggingFilter implements GlobalFilter, Ordered {
                         request.getURI().getHost(),
                         request.getURI().getPath(),
                         request.getQueryParams(), executeTime, statusCode, traceId);
-                logger.info(info);
+                log.info(info);
             }
         }));
     }

@@ -10,7 +10,6 @@
         <Property name="LOG_BUSINESS_LEVEL">INFO</Property>
         <Property name="LOG_PROXY_LEVEL">INFO</Property>
         <Property name="LOG_LEVEL">ALL</Property>
-        <Property name="LOG_SQL_LEVEL">INFO</Property>
     </Properties>
 
     <!--先定义所有的appender-->
@@ -21,10 +20,20 @@
             <!--输出日志的格式-->
             <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
         </Console>
-
+<!--        &lt;!&ndash;这里用于测试下同步日志&ndash;&gt;-->
+<!--        <RollingFile name="sync" fileName="${LOG_HOME}/sync.log" immediateFlush="false" append="true"-->
+<!--                     filePattern="${LOG_HOME}/sync-%d{yyyy-MM-dd}-%i.log.gz">-->
+<!--            <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>-->
+<!--            <Policies>-->
+<!--                <SizeBasedTriggeringPolicy size="1000 MB"/>-->
+<!--                <TimeBasedTriggeringPolicy/>-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="15"/>-->
+<!--        </RollingFile>-->
         <!--business的日志记录追加器-->
-        <RollingRandomAccessFile  name="businessFile" fileName="${LOG_HOME}/business.log" immediateFlush="false" append="true"
-                           filePattern="${LOG_HOME}/business-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingRandomAccessFile name="businessFile" fileName="${LOG_HOME}/business.log" immediateFlush="false"
+                                 append="true"
+                                 filePattern="${LOG_HOME}/business-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
             <!--    接受${LOG_BUSINESS_LEVEL}及其以下等级的日志    -->
             <Filters>
@@ -36,11 +45,12 @@
                 <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy max="15"/>
-        </RollingRandomAccessFile >
+        </RollingRandomAccessFile>
 
         <!--exception的日志记录追加器-->
-        <RollingRandomAccessFile  name="exceptionFile" fileName="${LOG_HOME}/exception.log" immediateFlush="false" append="true"
-                           filePattern="${LOG_HOME}/exception-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingRandomAccessFile name="exceptionFile" fileName="${LOG_HOME}/exception.log" immediateFlush="false"
+                                 append="true"
+                                 filePattern="${LOG_HOME}/exception-%d{yyyy-MM-dd}-%i.log.gz">
             <!--    接受WARN及其以上等级的日志    -->
             <Filters>
                 <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
@@ -52,44 +62,54 @@
                 <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy max="15"/>
-        </RollingRandomAccessFile >
+        </RollingRandomAccessFile>
 
         <!--proxy的日志记录追加器-->
-        <RollingRandomAccessFile  name="proxyFile" fileName="${LOG_HOME}/proxy.log" immediateFlush="false" append="true"
-                           filePattern="${LOG_HOME}/proxy-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingRandomAccessFile name="proxyFile" fileName="${LOG_HOME}/proxy.log" immediateFlush="false" append="true"
+                                 filePattern="${LOG_HOME}/proxy-%d{yyyy-MM-dd}-%i.log.gz">
             <!--    接受WARN及其以上等级的日志    -->
-      <!--      <Filters>
-                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
-            </Filters>
--->
+            <!--      <Filters>
+                      <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+                  </Filters>
+      -->
             <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="1000 MB"/>
                 <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy max="15"/>
-        </RollingRandomAccessFile >
+        </RollingRandomAccessFile>
 
         <Async name="Async">
             <appender-ref ref="Console"/>
             <appender-ref ref="businessFile"/>
             <appender-ref ref="exceptionFile"/>
-            <appender-ref ref="proxyFile"/>
         </Async>
 
     </appenders>
 
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
     <loggers>
-        <root level="${LOG_LEVEL}">
-            <appender-ref ref="Console"/>
-            <appender-ref ref="businessFile"/>
-            <appender-ref ref="exceptionFile"/>
+        <root level="DEBUG">
+            <appender-ref ref="Async" />
         </root>
-
-        <AsyncLogger name="com.alibaba.nacos.client" level="ERROR" additivity="false">
+        <!--        <AsyncLogger name="xyz.micrqwe.controller" level="INFO" additivity="false">-->
+        <!--            <appender-ref ref="businessFile"/>-->
+        <!--            <appender-ref ref="exceptionFile"/>-->
+        <!--        </AsyncLogger>-->
+        <Logger name="com.alibaba.nacos.client" level="ERROR" additivity="false">
             <appender-ref ref="exceptionFile"/>
-        </AsyncLogger>
-
+        </Logger>
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+        <!--Logger节点用来单独指定日志的形式，name为包路径,比如要为org.springframework包下所有日志指定为INFO级别等。 -->
+        <logger name="org.springframework" level="INFO"></logger>
+        <logger name="io.netty" level="INFO"></logger>
+        <logger name="reactor.netty" level="INFO"></logger>
+        <logger name="org.mybatis" level="INFO"></logger>
+        <!--AsyncLogger :异步日志,LOG4J有三种日志模式,全异步日志,混合模式,同步日志,性能从高到底,线程越多效率越高,也可以避免日志卡死线程情况发生-->
+        <!--additivity="false" : additivity设置事件是否在root logger输出，为了避免重复输出，可以在Logger 标签下设置additivity为”false”-->
+<!--        <AsyncLogger name="AsyncLogger" level="trace" includeLocation="true" additivity="false">-->
+<!--            <appender-ref ref="RollingFileError"/>-->
+<!--        </AsyncLogger>-->
     </loggers>
 </configuration>
