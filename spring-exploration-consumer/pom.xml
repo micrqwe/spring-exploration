@@ -48,6 +48,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+<<<<<<< HEAD
+=======
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+>>>>>>> 6de74484715b43708614ded9eecf138cc90be0d2
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -58,6 +67,15 @@
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-spring-boot-starter</artifactId>
             <version>2.2.0</version>
+<<<<<<< HEAD
+=======
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+>>>>>>> 6de74484715b43708614ded9eecf138cc90be0d2
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
