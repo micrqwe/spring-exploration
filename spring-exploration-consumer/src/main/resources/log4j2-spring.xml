@@ -18,13 +18,9 @@
         <!--这个输出控制台的配置-->
         <Console name="Console" target="SYSTEM_OUT">
             <!--输出日志的格式-->
-<<<<<<< HEAD
-            <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>
-=======
 <!--            <PatternLayout pattern="%d [%t] %-5p [%c] - %m%n"/>-->
 <!--            彩色日志该参数配合以下%highlight标签生效:log4j.skipJansi=false-->
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%highlight{%t}] %highlight{%-5p} %highlight{%c}: %m%n" />
->>>>>>> 6de74484715b43708614ded9eecf138cc90be0d2
         </Console>
 
         <!--business的日志记录追加器-->

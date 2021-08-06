@@ -50,8 +50,4 @@ target/
 **/out/
 .DS_Store
 /webs/.gradle/
-<<<<<<< HEAD
-logs-gateway/
-=======
 logs-*/
->>>>>>> 6de74484715b43708614ded9eecf138cc90be0d2
