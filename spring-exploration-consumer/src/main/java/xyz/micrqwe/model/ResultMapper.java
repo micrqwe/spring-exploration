@@ -1,45 +1,26 @@
 package xyz.micrqwe.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by le on 2017/5/9.
  */
-public class ResultMapper {
+@Getter
+@Setter
+public class ResultMapper<T> {
     private Integer code;
     private String msg;
     private boolean raw;
-    private Object data;
+    private T data;
 
-    public ResultMapper(Integer code, String msg, boolean raw, Object data) {
+    public ResultMapper() {
+
+    }
+
+    public ResultMapper(int code, String msg) {
         this.code = code;
         this.msg = msg;
-        this.raw = raw;
-        this.data = data;
-    }
-
-    public ResultMapper(Integer code, String msg, Object data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
-
-    public ResultMapper(Integer code, Object data) {
-        this.code = code;
-        this.data = data;
-    }
-
-    public ResultMapper(Integer code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-
-    public ResultMapper(Integer code, String msg, boolean raw) {
-        this.code = code;
-        this.msg = msg;
-        this.raw = raw;
-    }
-
-    public ResultMapper(Integer code) {
-        this.code = code;
     }
 
     public Integer getCode() {
@@ -66,11 +47,11 @@ public class ResultMapper {
         this.raw = raw;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

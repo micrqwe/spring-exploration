@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import xyz.micrqwe.listener.ProductRocketMQ;
+import xyz.micrqwe.model.PageResultMapper;
 import xyz.micrqwe.model.ResultMapper;
 import xyz.micrqwe.model.User;
 import xyz.micrqwe.service.HelloService;
@@ -15,6 +16,7 @@ import xyz.micrqwe.service.impl.MiaoshaServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,13 +45,19 @@ public class HelloController {
     @GetMapping("/productMq")
     public ResultMapper productMq() {
         productRocketMQ.convertAndSend();
-        return new ResultMapper(200, System.currentTimeMillis());
+        return new ResultMapper(200, System.currentTimeMillis()+"");
     }
 
     @GetMapping("/testLong")
     @ResponseBody
-    public ResultMapper testLong() {
-        return new ResultMapper(200, 123456789123456789L);
+    public ResultMapper<PageResultMapper<Map>> testLong() {
+        ResultMapper<PageResultMapper<Map>> map = new ResultMapper<PageResultMapper<Map>>();
+
+        PageResultMapper<Map> map1 = new PageResultMapper<Map>();
+        map1.setData(new HashMap());
+        
+        map.setData(map1);
+        return map;
     }
 
 

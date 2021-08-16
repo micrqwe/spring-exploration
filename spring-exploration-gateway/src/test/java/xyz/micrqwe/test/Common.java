@@ -1,7 +1,10 @@
 package xyz.micrqwe.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import xyz.micrqwe.GatewayApplication;
 
 /**
@@ -18,5 +21,23 @@ public class Common {
             System.out.println("错误");
         }
         return s;
+    }
+    @Test
+    public void concatMapAndNExt() throws InterruptedException {
+        Flux.fromArray("abcdefghi".split(""))
+                .concatMap(this::convertByCondition)
+                .next()
+                .subscribe(c -> System.out.println("\nresult = " + c));
+        Thread.sleep(2000);
+
+    }
+
+    private Mono<Character> convertByCondition(String s) {
+        System.out.print("->" + s);
+        char c = s.toCharArray()[0];
+        if (c < 'e') {
+            return Mono.empty();
+        }
+        return Mono.just(c);
     }
 }

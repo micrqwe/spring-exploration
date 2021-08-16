@@ -22,7 +22,7 @@ public class ChargeController {
     @ResponseBody
     public ResultMapper schCount() {
         long i = chargeService.schCount();
-        return new ResultMapper(200, i);
+        return new ResultMapper(200, i+"");
     }
 
     @GetMapping("/redis")
