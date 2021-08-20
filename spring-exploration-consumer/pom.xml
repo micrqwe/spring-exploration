@@ -201,6 +201,11 @@
             <artifactId>apollo-client</artifactId>
             <version>1.8.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.taobao.arthas</groupId>
+            <artifactId>arthas-spring-boot-starter</artifactId>
+            <version>3.4.8</version>
+        </dependency>
     </dependencies>
 
 </project>

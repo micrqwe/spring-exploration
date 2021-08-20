@@ -34,10 +34,12 @@ spring:
       on-profile: dev
 #  profiles:
 #    include:
-testDevProperties: dev
+arthas:
+  agent-id: exploration-file-local
 ---
 spring:
   config:
     activate:
       on-profile: test
-testDevProperties: test
+arthas:
+  agent-id: exploration-file

@@ -29,6 +29,8 @@ spring:
           enabled: true
           # 启用服务实例id名称小写支持
           lower-case-service-id: true
+  profiles:
+    active: dev
 #      routes:
 #  profiles:
 #    active: nacos
@@ -40,3 +42,20 @@ management:
   endpoint:
     health:
       show-details: always
+# 环境不同的配置文件
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+#  profiles:
+#    include:
+arthas:
+  agent-id: exploration-gateway-local
+---
+spring:
+  config:
+    activate:
+      on-profile: prd
+arthas:
+  agent-id: exploration-gateway
