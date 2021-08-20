@@ -52,18 +52,4 @@ public class ErrorHandlerConfiguration {
         this.serverCodecConfigurer = serverCodecConfigurer;
     }
 
-//    @Bean
-//    @Order(Ordered.HIGHEST_PRECEDENCE)
-//    public ErrorWebExceptionHandler errorWebExceptionHandler(ErrorAttributes errorAttributes) {
-//        JsonExceptionHandler exceptionHandler = new JsonExceptionHandler(
-//                errorAttributes,
-//                this.resourceProperties,
-//                this.serverProperties.getError(),
-//                this.applicationContext);
-//        exceptionHandler.setViewResolvers(this.viewResolvers);
-//        exceptionHandler.setMessageWriters(this.serverCodecConfigurer.getWriters());
-//        exceptionHandler.setMessageReaders(this.serverCodecConfigurer.getReaders());
-////        exceptionHandler.setAppProperties(appProperties);
-//        return exceptionHandler;
-//    }
 }

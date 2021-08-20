@@ -17,9 +17,8 @@ apollo:
 spring:
   application:
     name: exploration-consumer
-
   profiles:
-    active: test
+    active: dev
 # 环境不同的配置文件
 ---
 spring:
@@ -28,10 +27,12 @@ spring:
       on-profile: dev
 #  profiles:
 #    include:
-testDevProperties: dev
+arthas:
+  agent-id: exploration-consumer-local
 ---
 spring:
   config:
     activate:
-      on-profile: test
-testDevProperties: test
+      on-profile: prd
+arthas:
+  agent-id: exploration-consumer
