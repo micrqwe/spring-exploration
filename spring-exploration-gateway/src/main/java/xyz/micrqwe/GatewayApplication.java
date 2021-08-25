@@ -8,6 +8,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 //@ImportResource(value = "classpath:conf/*.xml")
 public class GatewayApplication {
+    static {
+        System.out.println("我在初始化1111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+    }
     public static void main(String[] args) throws Exception {
 //        ## 消费端
 //        DefaultMQPushConsumer.setVipChannelEnabled(false)

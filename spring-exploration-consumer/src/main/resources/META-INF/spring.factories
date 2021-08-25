@@ -1,0 +1,1 @@
+org.springframework.boot.env.EnvironmentPostProcessor = xyz.micrqwe.config.EnvironmentCustom
