@@ -1,5 +1,7 @@
 package xyz.micrqwe.controller;
 
+import com.alibaba.nacos.api.config.annotation.NacosProperty;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -19,7 +21,8 @@ import java.util.List;
 public class HelloController {
     @Value("${testDbUrl:nulls}")
     private String host;
-
+    @NacosProperty("${testDbUrl:nulls}")
+    private String hostTest;
     @GetMapping("/host")
     public String getHost() {
         log.trace("trace:11111111111111111111111111");
@@ -27,7 +30,7 @@ public class HelloController {
         log.info("info:33333333333333333333");
         log.warn("warn:444444444444444444444444444444");
         log.error("error:555555555555555555555555");
-        return host;
+        return "test:"+host+";"+hostTest+"::";
     }
 
 }

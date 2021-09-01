@@ -1,8 +1,11 @@
 package xyz.micrqwe;
 
+import com.alibaba.cloud.nacos.NacosConfigManager;
+import com.alibaba.cloud.nacos.client.NacosPropertySourceLocator;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -18,4 +21,5 @@ public class GatewayApplication {
 //        DefaultMQProducer.setVipChannelEnabled(false);
         SpringApplication.run(GatewayApplication.class, args);
     }
+
 }
