@@ -6,21 +6,6 @@ spring:
   application:
     name: exploration-gateway
   cloud:
-    nacos:
-#      discovery:
-#        server-addr: 192.168.0.154:8848 #nacos注册中心地址
-#        namespace: 111111-11111111-111111111 #对应的namespaceId
-      config:
-        enabled: true
-        server-addr: 150.158.195.216:8848 #nacos注册中心地址
-        namespace: 0b4cf939-d211-4b0f-83b3-f1bab4b2608d #对应的namespaceId
-#        group: exploration-gateway #分组ID，这里使用spring.application.name的值
-#        file-extension: properties
-#        refresh-enabled: true
-#        shared-configs:
-#          - data-id: config.properties #通用配置
-#            group: exploration-gateway
-#            refresh: true
     gateway:
       enabled: true
       discovery:

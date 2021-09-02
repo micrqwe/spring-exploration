@@ -117,6 +117,7 @@
         <module>spring-exploration-consumer</module>
         <module>spring-exploration-gateway</module>
         <module>spring-exploration-file</module>
+        <module>spring-exploration-config</module>
     </modules>
 
     <profiles>

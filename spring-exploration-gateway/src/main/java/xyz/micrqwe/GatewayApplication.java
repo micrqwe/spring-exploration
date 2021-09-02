@@ -1,11 +1,8 @@
 package xyz.micrqwe;
 
-import com.alibaba.cloud.nacos.NacosConfigManager;
-import com.alibaba.cloud.nacos.client.NacosPropertySourceLocator;
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -14,6 +11,7 @@ public class GatewayApplication {
     static {
         System.out.println("我在初始化1111111111111111111111111111111111111111111111111111111111111111111111111111111111");
     }
+
     public static void main(String[] args) throws Exception {
 //        ## 消费端
 //        DefaultMQPushConsumer.setVipChannelEnabled(false)
@@ -21,5 +19,8 @@ public class GatewayApplication {
 //        DefaultMQProducer.setVipChannelEnabled(false);
         SpringApplication.run(GatewayApplication.class, args);
     }
-
+//    @Bean
+//    public TestNacosPropertySourceLocator testNacosPropertySourceLocator(NacosConfigManager nacosConfigManager){
+//        return new TestNacosPropertySourceLocator(nacosConfigManager);
+//    }
 }

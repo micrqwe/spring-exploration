@@ -19,10 +19,8 @@ import java.util.List;
 @RequestMapping("/home/test")
 @RefreshScope
 public class HelloController {
-    @Value("${testDbUrl:nulls}")
+    @Value("${testDevProperties:nulls}")
     private String host;
-    @NacosProperty("${testDbUrl:nulls}")
-    private String hostTest;
     @GetMapping("/host")
     public String getHost() {
         log.trace("trace:11111111111111111111111111");
@@ -30,7 +28,7 @@ public class HelloController {
         log.info("info:33333333333333333333");
         log.warn("warn:444444444444444444444444444444");
         log.error("error:555555555555555555555555");
-        return "test:"+host+";"+hostTest+"::";
+        return "test:"+host+";";
     }
 
 }

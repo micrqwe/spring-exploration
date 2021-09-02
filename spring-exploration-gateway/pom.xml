@@ -15,6 +15,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>micrqwe.xyz</groupId>
+            <artifactId>spring-exploration-config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
@@ -44,16 +49,6 @@
 <!--                <exclusion>-->
 <!--                    <artifactId>nacos-client</artifactId>-->
 <!--                    <groupId>com.alibaba.nacos</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.alibaba.nacos</groupId>-->
-<!--                    <artifactId>nacos-client</artifactId>-->
 <!--                </exclusion>-->
 <!--            </exclusions>-->
         </dependency>

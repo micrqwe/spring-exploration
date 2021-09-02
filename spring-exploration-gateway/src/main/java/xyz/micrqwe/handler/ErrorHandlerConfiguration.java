@@ -25,8 +25,8 @@ import java.util.List;
  * @author <a href="mailto:wf2311@163.com">wf2311</a>
  * @since 2020/7/22 21:02.
  */
-@Configuration
-@EnableConfigurationProperties({ServerProperties.class, ResourceProperties.class})
+//@Configuration
+//@EnableConfigurationProperties({ServerProperties.class, ResourceProperties.class})
 public class ErrorHandlerConfiguration {
 
     private final ServerProperties serverProperties;

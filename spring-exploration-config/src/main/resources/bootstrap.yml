@@ -1,0 +1,19 @@
+# 升级springboot2.4以上版本后,该配置文件会不生效,需要环境变量:spring.cloud.bootstrap.enabled=true 或者 引入spring-cloud-starter-bootstrap的jar包才行
+# 模板配置,需要启用,在jar包启动的命令行参数里面加
+spring:
+  cloud:
+    nacos:
+#      discovery:
+#        server-addr: 192.168.0.154:8848 #nacos注册中心地址
+#        namespace: 111111-11111111-111111111 #对应的namespaceId
+      config:
+        enabled: false
+#        server-addr: 192.168.0.154:8848 #nacos注册中心地址
+#        namespace: 0b4cf939-d211-4b0f-83b3-f1bab4b2608d #对应的namespaceId
+#        group: exploration-gateway #分组ID，这里使用spring.application.name的值
+#        file-extension: properties
+#        refresh-enabled: true
+#        shared-configs:
+#          - data-id: config.properties #通用配置
+#            group: exploration
+#            refresh: true
