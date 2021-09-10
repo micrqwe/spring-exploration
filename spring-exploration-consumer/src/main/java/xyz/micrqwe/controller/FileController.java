@@ -29,14 +29,14 @@ public class FileController {
         file.setColumnName("{xxx:xx}");
         file.setColumnNum(10);
         file.setRowNum(10);
-        tableFileService.insert(file);
+        tableFileService.getFileMapper().insert(file);
         return file.getId() + "";
     }
 
     @RequestMapping("get")
     public Object get() {
 
-        return tableFileService.selectById(1);
+        return tableFileService.getFileMapper().selectById(1);
     }
     @RequestMapping("getByXml")
     public Object getByXml() {

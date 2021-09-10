@@ -1,6 +1,6 @@
 package xyz.micrqwe.service;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.micrqwe.dao.FileMapper;
@@ -15,11 +15,15 @@ import xyz.micrqwe.model.File;
  * @since 2021-09-08
  */
 @Service
-public class TableFileService extends ServiceImpl<FileMapper, File>  {
+public class TableFileService extends ServiceImpl<FileMapper, File> {
     @Autowired
     private FileMapper fileMapper;
     public File getByXml(int id){
 
         return fileMapper.getByXml(id);
+    }
+
+    public FileMapper getFileMapper() {
+        return fileMapper;
     }
 }

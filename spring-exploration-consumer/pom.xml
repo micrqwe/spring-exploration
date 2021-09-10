@@ -12,8 +12,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-        <mybatisplus.version>2.1.9</mybatisplus.version>
+        <mybatisplus-spring-boot-starter.version>3.4.3.3</mybatisplus-spring-boot-starter.version>
+<!--        <mybatisplus.version>3.4.3.3</mybatisplus.version>-->
         <java.version>1.8</java.version>
         <repackage.classifier/>
         <spring-native.version>0.10.1</spring-native.version>
@@ -101,27 +101,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatisplus-spring-boot-starter</artifactId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatisplus-spring-boot-starter.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>${mybatisplus.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mybatis</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!--安全框架-->
         <dependency>
