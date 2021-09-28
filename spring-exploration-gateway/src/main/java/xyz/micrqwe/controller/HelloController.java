@@ -5,9 +5,11 @@ import com.alibaba.nacos.api.config.annotation.NacosValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 import xyz.micrqwe.filter.ProxyLoggingFilter;
 
 import java.util.ArrayList;
@@ -30,5 +32,6 @@ public class HelloController {
         log.error("error:555555555555555555555555");
         return "test:"+host+";";
     }
+
 
 }

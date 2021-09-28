@@ -11,13 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RefreshScope
 @RequestMapping("/home/test")
 public class HelloController {
-    @Value("${testDevProperties}")
-    private String dbUrl;
     @Value("${test.apollo.properties:moren}")
     private String testApollo;
 
     @GetMapping("/getDbUrl")
     public String getDbUrl() {
-        return dbUrl + ":" + testApollo;
+        return testApollo;
     }
 }

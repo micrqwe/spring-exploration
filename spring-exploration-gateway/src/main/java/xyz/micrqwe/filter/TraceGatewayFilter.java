@@ -14,7 +14,6 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
- * @author <a href="mailto:wf2311@163.com">wf2311</a>
  * @since 2020/5/11 15:15.
  */
 @Component

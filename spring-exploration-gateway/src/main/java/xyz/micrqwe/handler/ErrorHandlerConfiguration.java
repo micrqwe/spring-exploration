@@ -22,7 +22,6 @@ import java.util.List;
 /**
  * 覆盖默认的异常处理
  *
- * @author <a href="mailto:wf2311@163.com">wf2311</a>
  * @since 2020/7/22 21:02.
  */
 //@Configuration
