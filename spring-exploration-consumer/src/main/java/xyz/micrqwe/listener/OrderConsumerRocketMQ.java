@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import xyz.micrqwe.model.mq.OrderPaidEvent;
 
 /**
- * description TODO
+ * description 测试mq
  *
  * @author shaowenxing
  * @version 1.0

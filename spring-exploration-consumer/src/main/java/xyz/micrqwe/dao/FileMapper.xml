@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.micrqwe.dao.FileMapper">
+<mapper namespace="xyz.micrqwe.dao.FileMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.micrqwe.model.entity.File">
+    <resultMap id="BaseResultMap" type="xyz.micrqwe.model.File">
         <id column="id" property="id" />
         <result column="file_name" property="fileName" />
         <result column="row_num" property="rowNum" />
@@ -15,7 +15,7 @@
     <sql id="Base_Column_List">
         id, file_name, row_num, column_num, `column_name`
     </sql>
-    <select id="getByXml" resultType="com.micrqwe.model.entity.File">
+    <select id="getByXml" resultType="xyz.micrqwe.model.File">
         select <include refid="Base_Column_List" /> from file where id=#{id}
     </select>
 </mapper>

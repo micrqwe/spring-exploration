@@ -1,5 +1,14 @@
 server:
   port: 9147
+#  ssl:
+#    # 证书在该项目的目录.
+#    key-store: cert.p12
+#    key-store-password: 123456
+#    ## 如下keystoretype可以加上也可以不加
+#    key-store-type: PKCS12
+#    enabled: true
+#  http2:
+#    enabled: true
 spring:
 #  config:
 #    use-legacy-processing: true

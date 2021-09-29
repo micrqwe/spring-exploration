@@ -1,7 +1,5 @@
 package xyz.micrqwe.config;
 
-import com.baomidou.mybatisplus.MybatisMapWrapperFactory;
-import com.baomidou.mybatisplus.spring.boot.starter.ConfigurationCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,14 +17,14 @@ public class MybatiesConfig {
      *
      * @return
      */
-    @Bean
-    public ConfigurationCustomizer mybatisConfigurationCustomizer() {
-        return new ConfigurationCustomizer() {
-            @Override
-            public void customize(
-                    org.apache.ibatis.session.Configuration configuration) {
-                configuration.setObjectWrapperFactory(new MybatisMapWrapperFactory());
-            }
-        };
-    }
+//    @Bean
+//    public ConfigurationCustomizer mybatisConfigurationCustomizer() {
+//        return new ConfigurationCustomizer() {
+//            @Override
+//            public void customize(
+//                    org.apache.ibatis.session.Configuration configuration) {
+//                configuration.setObjectWrapperFactory(new MybatisMapWrapperFactory());
+//            }
+//        };
+//    }
 }
