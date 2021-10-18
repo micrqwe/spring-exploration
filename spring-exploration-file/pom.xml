@@ -104,12 +104,22 @@
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
+     <!--    dubbo 服务-->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-serialization-protobuf</artifactId>
+        </dependency>
 
-<!--        <dependency>-->
+        <!--        <dependency>-->
 <!--            <groupId>com.taobao.arthas</groupId>-->
 <!--            <artifactId>arthas-spring-boot-starter</artifactId>-->
 <!--            <version>3.4.8</version>-->
 <!--        </dependency>-->
+
     </dependencies>
     <build>
         <plugins>
@@ -119,7 +129,7 @@
                 <version>0.6.1</version>
                 <configuration>
                     <protocArtifact>com.google.protobuf:protoc:3.8.0:exe:osx-x86_64</protocArtifact>
-                    <outputDirectory>build/generated/source/proto/main/java</outputDirectory>
+                    <outputDirectory>src/main/java</outputDirectory>
                     <clearOutputDirectory>false</clearOutputDirectory>
                     <protocPlugins>
                         <protocPlugin>
