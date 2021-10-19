@@ -14,6 +14,24 @@ spring:
       enabled: true
       max-file-size: 10000MB
       max-request-size: 10000MB
+
+dubbo:
+  # 配置服务信息
+  application:
+    name: dubbo-consumer-file
+    # 禁用QOS同一台机器可能会有端口冲突现象
+    qos-enable: false
+    qos-accept-foreign-ip: false
+  # 配置注册中心
+  registry:
+    address: nacos://150.158.195.216:8848?namespace=8f9b5fab-0e49-4e90-a07e-c93bd1bcaed7
+  # 设置超时时间
+  consumer:
+    timeout: 4000
+  # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
+  protocol:
+    port: 20880
+    name: dubbo
 # 环境不同的配置文件
 ---
 spring:

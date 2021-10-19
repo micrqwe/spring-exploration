@@ -12,11 +12,14 @@
     <packaging>jar</packaging>
 
     <properties>
+        <source.level>1.8</source.level>
+        <target.level>1.8</target.level>
+        <java.version>1.8</java.version>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>2.1.9</mybatisplus.version>
-        <java.version>1.8</java.version>
         <repackage.classifier/>
         <spring-native.version>0.10.1</spring-native.version>
+        <dubbo.version>3.0.3</dubbo.version>
     </properties>
 
     <dependencies>
@@ -24,18 +27,18 @@
             <groupId>micrqwe.xyz</groupId>
             <artifactId>spring-exploration-config</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>nacos-client</artifactId>
+                    <groupId>com.alibaba.nacos</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <!--            <exclusions>-->
-            <!--                <exclusion>-->
-            <!--                    <artifactId>nacos-client</artifactId>-->
-            <!--                    <groupId>com.alibaba.nacos</groupId>-->
-            <!--                </exclusion>-->
-            <!--            </exclusions>-->
+            <groupId>micrqwe.xyz</groupId>
+            <artifactId>spring-exploration-dubbo-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -68,11 +71,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--            <version>8.0.13</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -82,12 +80,12 @@
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
         </dependency>
-<!--        获取浏览器信息的依赖-->
-<!--       <dependency>-->
-<!--            <groupId>eu.bitwalker</groupId>-->
-<!--            <artifactId>UserAgentUtils</artifactId>-->
-<!--            <version>1.20</version>-->
-<!--        </dependency>-->
+        <!--        获取浏览器信息的依赖-->
+        <!--       <dependency>-->
+        <!--            <groupId>eu.bitwalker</groupId>-->
+        <!--            <artifactId>UserAgentUtils</artifactId>-->
+        <!--            <version>1.20</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -104,52 +102,52 @@
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
-     <!--    dubbo 服务-->
+        <!--            dubbo 服务-->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-serialization-protobuf</artifactId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.dubbo</groupId>-->
+<!--            <artifactId>dubbo-configcenter-nacos</artifactId>-->
+<!--            <version>${dubbo.version}</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>nacos-client</artifactId>
+                    <groupId>com.alibaba.nacos</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>2.0.2</version>
         </dependency>
 
         <!--        <dependency>-->
-<!--            <groupId>com.taobao.arthas</groupId>-->
-<!--            <artifactId>arthas-spring-boot-starter</artifactId>-->
-<!--            <version>3.4.8</version>-->
-<!--        </dependency>-->
+        <!--            <groupId>com.taobao.arthas</groupId>-->
+        <!--            <artifactId>arthas-spring-boot-starter</artifactId>-->
+        <!--            <version>3.4.8</version>-->
+        <!--        </dependency>-->
 
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.6.1</version>
-                <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:3.8.0:exe:osx-x86_64</protocArtifact>
-                    <outputDirectory>src/main/java</outputDirectory>
-                    <clearOutputDirectory>false</clearOutputDirectory>
-                    <protocPlugins>
-                        <protocPlugin>
-                            <id>dubbo</id>
-                            <groupId>org.apache.dubbo</groupId>
-                            <artifactId>dubbo-compiler</artifactId>
-                            <version>0.0.2</version>
-                            <mainClass>org.apache.dubbo.gen.dubbo.Dubbo3Generator</mainClass>
-                        </protocPlugin>
-                    </protocPlugins>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -169,25 +167,25 @@
                     </image>
                 </configuration>
             </plugin>
-         <!--   <plugin>
-                <groupId>org.springframework.experimental</groupId>
-                <artifactId>spring-aot-maven-plugin</artifactId>
-                <version>${spring-native.version}</version>
-                <executions>
-                    <execution>
-                        <id>test-generate</id>
-                        <goals>
-                            <goal>test-generate</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>generate</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
+            <!--   <plugin>
+                   <groupId>org.springframework.experimental</groupId>
+                   <artifactId>spring-aot-maven-plugin</artifactId>
+                   <version>${spring-native.version}</version>
+                   <executions>
+                       <execution>
+                           <id>test-generate</id>
+                           <goals>
+                               <goal>test-generate</goal>
+                           </goals>
+                       </execution>
+                       <execution>
+                           <id>generate</id>
+                           <goals>
+                               <goal>generate</goal>
+                           </goals>
+                       </execution>
+                   </executions>
+               </plugin>-->
         </plugins>
     </build>
 

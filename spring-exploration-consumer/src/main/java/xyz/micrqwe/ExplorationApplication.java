@@ -3,6 +3,7 @@ package xyz.micrqwe;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @MapperScan(basePackages = {"xyz.micrqwe.dao"})
