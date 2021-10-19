@@ -19,7 +19,7 @@ public class ChargeController {
     @Autowired
     ChargeServiceImpl chargeService;
     @Autowired
-    private RedisTemplate<String,String> redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
     @Autowired
     private ProductRocketMQ productRocketMQ;
 
@@ -27,19 +27,27 @@ public class ChargeController {
     @ResponseBody
     public ResultMapper schCount() {
         long i = chargeService.schCount();
-        return new ResultMapper(200, i+"");
+        return new ResultMapper(200, i + "");
     }
 
     @GetMapping("/productMq")
     public ResultMapper productMq() {
         productRocketMQ.convertAndSend();
-        return new ResultMapper(200, System.currentTimeMillis()+"");
+        return new ResultMapper(200, System.currentTimeMillis() + "");
+    }
+
+    @GetMapping("/dubbo-nacos")
+    public ResultMapper dubboNacos() {
+        String test = chargeService.dubboNacos();
+
+
+        return new ResultMapper(200, test);
     }
 
     @GetMapping("/redis")
     @ResponseBody
     public ResultMapper redis() {
-        redisTemplate.opsForValue().set("tests","ssss",60, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set("tests", "ssss", 60, TimeUnit.MINUTES);
         return new ResultMapper(200, redisTemplate.opsForValue().get("tests"));
     }
 

@@ -1,5 +1,6 @@
 package xyz.micrqwe.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import xyz.micrqwe.dao.ChargeMapper;
 import xyz.micrqwe.dao.CityMapper;
+import xyz.micrqwe.dubbo.nacos.DemoService;
 import xyz.micrqwe.service.HelloService;
 
 import java.util.HashMap;
@@ -24,7 +26,8 @@ import java.util.concurrent.TimeUnit;
 public class ChargeServiceImpl {
     @Autowired
     private ChargeMapper chargeMapper;
-
+    @Autowired
+    private DemoService demoService;
 
     public long schCount() {
         Long m = chargeMapper.queryMaxSchId();
@@ -34,6 +37,9 @@ public class ChargeServiceImpl {
         m++;
         chargeMapper.insrtSwx(m, 1);
         return m;
+    }
+    public String dubboNacos(){
+        return demoService.sayHello("122222");
     }
 
 
