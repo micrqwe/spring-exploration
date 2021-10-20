@@ -1,7 +1,9 @@
-package xyz.micrqwe.dubbo.nacos;
+package xyz.micrqwe.dubbo.nacos.impl;
 
 import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.stereotype.Service;
+import xyz.micrqwe.dubbo.nacos.DemoService;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,7 +18,7 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String sayHello(String name) {
-        return "Hello " + name + ", response from provider: " ;
+        return "Hello " + name + ", response from provider: "+ RpcContext.getServerContext().getObjectAttachments().toString();
     }
 
     @Override

@@ -1,7 +1,8 @@
-package xyz.micrqwe.dubbo.nacos;
+package xyz.micrqwe.dubbo.nacos.impl;
 
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
+import xyz.micrqwe.dubbo.nacos.TestDemo1Service;
 
 import java.util.concurrent.CompletableFuture;
 
