@@ -14,6 +14,7 @@ public class Common {
         String s = null;
         try {
             s = objectMapper.writeValueAsString(o);
+            System.out.println(s);
         } catch (Exception e) {
             System.out.println("错误");
         }

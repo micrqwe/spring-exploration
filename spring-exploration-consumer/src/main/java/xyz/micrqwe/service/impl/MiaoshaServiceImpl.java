@@ -2,7 +2,6 @@ package xyz.micrqwe.service.impl;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import xyz.micrqwe.dao.CityMapper;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -18,8 +17,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @Service
 @Scope("prototype")
 public class MiaoshaServiceImpl {
-    //    @Autowired
-    private CityMapper cityMapper;
 
     Lock lock = new ReentrantLock();
     ReadWriteLock readWriteLock = new ReentrantReadWriteLock();

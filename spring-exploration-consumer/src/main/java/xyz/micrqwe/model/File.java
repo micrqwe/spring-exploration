@@ -31,9 +31,6 @@ public class File extends Model<File> {
 
     private Integer columnNum;
 
-    private String columnName;
-
-
     @Override
     public Serializable pkVal() {
         return this.id;

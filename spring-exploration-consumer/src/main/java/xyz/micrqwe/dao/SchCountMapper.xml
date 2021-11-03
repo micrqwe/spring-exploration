@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.micrqwe.dao.SchCountMapper">
+
+    <resultMap type="xyz.micrqwe.model.SchCount" id="SchCountMap">
+        <result property="schid" column="schId" jdbcType="INTEGER"/>
+        <result property="counts" column="counts" jdbcType="INTEGER"/>
+        <result property="memo" column="memo" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="query" resultType="xyz.micrqwe.model.SchCount" >
+        select * from sch_count
+    </select>
+</mapper>
+

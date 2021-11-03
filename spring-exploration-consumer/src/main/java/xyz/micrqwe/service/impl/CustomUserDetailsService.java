@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import xyz.micrqwe.dao.CityMapper;
 import xyz.micrqwe.model.User;
 
 import java.util.HashSet;
@@ -15,7 +14,7 @@ import java.util.Set;
 //@Service
 public class CustomUserDetailsService implements UserDetailsService {
     //    @Autowired  //数据库服务类
-    private CityMapper suserService;
+//    private CityMapper suserService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {

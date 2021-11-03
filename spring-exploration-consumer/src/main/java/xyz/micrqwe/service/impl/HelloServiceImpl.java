@@ -8,7 +8,6 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
-import xyz.micrqwe.dao.CityMapper;
 import xyz.micrqwe.service.HelloService;
 
 import java.util.HashMap;
@@ -21,8 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class HelloServiceImpl implements HelloService {
-    @Autowired
-    private CityMapper cityMapper;
+//    private CityMapper cityMapper;
     @Autowired
     private DataSourceTransactionManager txManager;
 

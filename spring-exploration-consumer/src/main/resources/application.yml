@@ -15,7 +15,7 @@ dubbo:
     qos-accept-foreign-ip: false
   # 配置注册中心
   registry:
-    address: nacos://150.158.195.216:8848?namespace=8f9b5fab-0e49-4e90-a07e-c93bd1bcaed7
+#    address: nacos://150.158.195.216:8848?namespace=8f9b5fab-0e49-4e90-a07e-c93bd1bcaed7
   # 设置超时时间
   consumer:
     timeout: 4000

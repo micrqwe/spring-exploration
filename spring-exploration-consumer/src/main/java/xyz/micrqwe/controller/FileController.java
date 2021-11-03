@@ -26,7 +26,7 @@ public class FileController {
     public String insert() {
         File file = new File();
         file.setFileName("hahah");
-        file.setColumnName("{xxx:xx}");
+//        file.setColumnName("{xxx:xx}");
         file.setColumnNum(10);
         file.setRowNum(10);
         tableFileService.getFileMapper().insert(file);

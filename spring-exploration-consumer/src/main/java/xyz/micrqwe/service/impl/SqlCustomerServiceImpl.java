@@ -1,7 +1,6 @@
 package xyz.micrqwe.service.impl;
 
 import org.springframework.stereotype.Service;
-import xyz.micrqwe.dao.SqlCustomerMapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +14,13 @@ import java.util.Map;
 @Service
 public class SqlCustomerServiceImpl {
     //    @Autowired
-    private SqlCustomerMapper customerMapper;
+//    private SqlCustomerMapper customerMapper;
 
 
     public Map querySql(String sql) {
         List<Map<String, Object>> list = null;
         try {
-            list = customerMapper.query(sql);
+//            list = customerMapper.query(sql);
         } catch (Exception e) {
 //            e.printStackTrace();
             System.out.println("当前sql数据错误");
