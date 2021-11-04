@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import xyz.micrqwe.dao.ChargeMapper;
-import xyz.micrqwe.dao.CityMapper;
 import xyz.micrqwe.dubbo.nacos.DemoService;
 import xyz.micrqwe.service.HelloService;
 

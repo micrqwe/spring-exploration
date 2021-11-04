@@ -68,7 +68,7 @@ public class DataSourceConfig {
         return dataSource;
     }
     public TableRuleConfiguration getOrderTableRuleConfiguration() {
-        TableRuleConfiguration result = new TableRuleConfiguration("sharding_test_","ds0.sharding_test_${0..1}");
+        TableRuleConfiguration result = new TableRuleConfiguration("sharding_test","ds0.sharding_test_${0..1}");
         result.setTableShardingStrategyConfig(new InlineShardingStrategyConfiguration(ShardingTest.PROPERTY_NAME_AGE, "sharding_test_${age % 2}"));
         return result;
     }

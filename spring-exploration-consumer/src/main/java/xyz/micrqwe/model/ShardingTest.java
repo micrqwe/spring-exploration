@@ -19,7 +19,7 @@ import lombok.Setter;
 //@Table(name = "sharding_test")
 @Getter
 @Setter
-@TableName("sharding_test_")
+@TableName("sharding_test")
 public class ShardingTest implements Serializable {
 // TODO private static final long serialVersionUID = -1L;
 

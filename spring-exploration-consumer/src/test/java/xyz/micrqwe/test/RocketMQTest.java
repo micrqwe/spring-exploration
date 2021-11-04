@@ -56,8 +56,8 @@ public class RocketMQTest extends Common {
 
     @Test
     public void queryPutong() {
-        System.out.println(System.getenv("test.name"));
-        System.out.println(System.getProperty("test.name"));
+        System.out.println(System.getenv("spring.cloud.nacos.config.server-addr"));
+        System.out.println(System.getProperty("spring.cloud.nacos.config.server-addr"));
         List<SchCount> shardingTestList = schCountService.getBaseMapper().query();
         toJson(shardingTestList);
     }
