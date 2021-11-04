@@ -19,7 +19,7 @@ public class ChargeTest extends Common {
     @Rollback
     @Transactional
     public void schCountController() throws Exception {
-        Object o = chargeController.schCount();
+        Object o = chargeController.schCount(null);
         System.out.println(toJson(o));
     }
     @Test
