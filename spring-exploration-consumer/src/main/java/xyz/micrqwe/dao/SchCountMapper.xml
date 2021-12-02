@@ -8,7 +8,11 @@
         <result property="memo" column="memo" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="query" resultType="xyz.micrqwe.model.SchCount" >
-        select (case age when 1 then (select file_name from file limit 1) else  0 end) as memo from sharding_test
+        select file_name as memo from file where id=3
+    </select>
+    <select id="sharding" resultType="xyz.micrqwe.model.SchCount" >
+                select * from sch_count where id=25
+--         select file_name as memo from file where id=3
     </select>
 </mapper>
 

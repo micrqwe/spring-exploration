@@ -2,6 +2,7 @@ package xyz.micrqwe.test;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.apache.shardingsphere.api.hint.HintManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import xyz.micrqwe.listener.ProductRocketMQ;
@@ -44,21 +45,51 @@ public class RocketMQTest extends Common {
 
     @Test
     public void query() {
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i < 3; i++) {
             ShardingTest shardingTest = new ShardingTest();
-            shardingTest.setAge(1);
+            shardingTest.setAge(i);
             QueryWrapper<ShardingTest> queryWrapper = new QueryWrapper<>();
             queryWrapper.setEntity(shardingTest);
             List<ShardingTest> shardingTestList = shardingTestService.getBaseMapper().selectList(queryWrapper);
             toJson(shardingTestList);
         }
+     /*   try (HintManager hintManager = HintManager.getInstance()) {
+            hintManager.setMasterRouteOnly();
+            QueryWrapper<ShardingTest> queryWrapper = new QueryWrapper<>();
+            queryWrapper.last(" order by id asc limit 5");
+            List<ShardingTest> shardingTestList = shardingTestService.getBaseMapper().selectList(queryWrapper);
+            toJson(shardingTestList);
+        }*/
+
     }
 
     @Test
     public void queryPutong() {
-        System.out.println(System.getenv("spring.cloud.nacos.config.server-addr"));
-        System.out.println(System.getProperty("spring.cloud.nacos.config.server-addr"));
-        List<SchCount> shardingTestList = schCountService.getBaseMapper().query();
-        toJson(shardingTestList);
+/*        ShardingTest shardingTest = new ShardingTest();
+        shardingTest.setAge(1);
+        QueryWrapper<ShardingTest> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(shardingTest);
+        List<ShardingTest> t1 = shardingTestService.getBaseMapper().selectList(queryWrapper);
+        toJson(t1);*/
+/*
+        for (int i = 0; i < 10; i++) {
+            List<SchCount> shardingTestList = schCountService.getBaseMapper().query();
+            toJson(shardingTestList);
+        }
+*/
+
+        HintManager hintManager = HintManager.getInstance();
+        hintManager.setMasterRouteOnly();
+        for (int i = 0; i < 10; i++) {
+            List<SchCount> te = schCountService.getBaseMapper().sharding();
+            toJson(te);
+        }
+       /* for (int i = 0; i < 10; i++) {
+            SchCount schCount= new SchCount();
+            schCount.setCounts(1);
+            schCount.setSchid(1);
+            schCount.setMemo("tableMaster:"+i);
+            schCountService.getBaseMapper().insert(schCount);
+        }*/
     }
 }

@@ -17,5 +17,6 @@ import java.util.List;
 public interface SchCountMapper extends BaseMapper<SchCount> {
 
     public List<SchCount> query();
+    public List<SchCount> sharding();
 }
 
