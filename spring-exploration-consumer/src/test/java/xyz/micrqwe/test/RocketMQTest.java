@@ -71,15 +71,13 @@ public class RocketMQTest extends Common {
         queryWrapper.setEntity(shardingTest);
         List<ShardingTest> t1 = shardingTestService.getBaseMapper().selectList(queryWrapper);
         toJson(t1);*/
-/*
         for (int i = 0; i < 10; i++) {
             List<SchCount> shardingTestList = schCountService.getBaseMapper().query();
             toJson(shardingTestList);
         }
-*/
-
-        HintManager hintManager = HintManager.getInstance();
-        hintManager.setMasterRouteOnly();
+        System.out.println("================================================================================================================================================================================================");
+        System.out.println("================================================================================================================================================================================================");
+        System.out.println("================================================================================================================================================================================================");
         for (int i = 0; i < 10; i++) {
             List<SchCount> te = schCountService.getBaseMapper().sharding();
             toJson(te);
